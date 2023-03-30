@@ -1,0 +1,60 @@
+{
+    "name": "matthewhallcom/pirate-weather-php",
+    "description": "PHP Library for the Pirate Weather API.",
+    "keywords": ["php", "api", "pirate-weather-api", "pirate-weather", "pirate-weather-php", "laravel", "laravel-package", "weather", "forecast"],
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/matthewhallcom/pirate-weather-php/issues",
+        "source": "https://github.com/matthewhallcom/pirate-weather-php"
+    },
+    "authors": [{
+        "name": "Matthew Hall",
+        "email": "matthew@hall.vc"  
+    },
+    {
+        "name": "Dmitry Ivanov",
+        "email": "dmitry.g.ivanov@gmail.com"
+    }],
+    "require": {
+        "php": ">=5.6",
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "^6.3|^7.0",
+        "psr/http-message": "^1.0"
+    },
+    "require-dev": {
+        "illuminate/contracts": "^5.1|^6.0|^7.0|^8.0|^9.0|^10.0",
+        "illuminate/support": "^5.1|^6.0|^7.0|^8.0|^9.0|^10.0"
+    },
+    "autoload": {
+        "files": [
+            "src/functions.php"
+        ],
+        "psr-4": {
+            "MatthewHallCom\\PirateWeather\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "files": [
+            "tests/Adapters/Laravel/helpers.php"
+        ],
+        "psr-4": {
+            "MatthewHallCom\\PirateWeather\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MatthewHallCom\\PirateWeather\\Adapters\\Laravel\\PirateWeatherServiceProvider"
+            ],
+            "aliases": {
+                "PirateWeather": "MatthewHallCom\\PirateWeather\\Adapters\\Laravel\\Facades\\PirateWeather"
+            }
+        }
+    },
+    "config": {
+        "allow-plugins": false,
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
