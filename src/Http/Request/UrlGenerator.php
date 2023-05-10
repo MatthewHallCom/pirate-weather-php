@@ -63,7 +63,15 @@ class UrlGenerator
      */
     protected function timeMachineUrl(Parameters $parameters, $date)
     {
-        $forecastUrl = $this->forecastUrl($parameters)->value();
+        $key = $parameters->getApiKey();
+
+        $latitude = round($parameters->getLatitude(), 3);
+        $longitude = round($parameters->getLongitude(), 3);
+
+        $latitude = number_format($latitude, 3);
+        $longitude = number_format($longitude, 3);
+
+        $forecastUrl = (new Url("https://timemachine.pirateweather.net/forecast/{$key}/{$latitude},{$longitude}"))->value();
 
         $urlDate = date('Y-m-d\TH:i:s', strtotime($date));
 
